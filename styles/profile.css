@@ -1,0 +1,227 @@
+/*style de la publicación presentada en el muro---en proceso de creación*/
+.container-coverPage-profilePhoto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url("../img/cover-default.jpg");
+    margin: 50px auto;
+    border-radius: 15px;
+    padding:1%;
+    background-size: cover;
+    background-position: bottom;
+    position: relative;
+    height: 200px;
+    margin-bottom: 90px;
+    width: 80%;
+    max-width: 700px;
+    cursor: pointer;
+}
+.div-logo-change-image {
+    background-color: rgb(79 58 101 / 96%);
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    z-index: 7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div-logo-change-image img {
+    z-index: 8;
+    position: relative;
+    height: 150px;
+    border-radius: 30px;
+    box-shadow: 7px 5px 3px black;
+}
+
+.name-usuario{
+    color: #FFF;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    bottom: -40px;
+    left: 130px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.photo-profile {
+    flex-direction: column;
+    font-size: 10px;
+    padding:1%;
+    cursor: pointer;
+    margin: 0;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 10px;
+    background-image: url("../img/un-usuario.jpg");
+    bottom: -60px;
+    border-radius: 69px ;
+    background-position: center;
+    background-size: cover;
+}
+.div-uploader-photo {
+    background-image: url("../img/icomon/camera1.png");
+    background-size: cover;
+    width:23px;
+    height: 23px;
+}
+#imgUploaderphoto{
+    opacity: 0;
+    width: 100%;
+}
+.div-uploader-cover-page {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-left: -200px;
+    margin-top: -170px;
+}
+.div-uploader-cover-page::before {
+    color: white;
+    font-size: 12px;
+    border-radius: 10px;
+    content: 'Editar foto de portada'; /* texto por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top right, rgb(30, 70, 145), rgb(78, 71, 134));
+    width:200px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:3px;
+}
+.div-uploader-cover-page input[type='file'] {
+    opacity: 0;
+    width: 100%;
+    position: relative;
+}
+.cover-page-profile {
+    flex-direction: column;
+    font-size: 10px;
+    margin:5% 12%;
+    border-radius: 15px;
+    padding:1%;
+    width:90%;
+    background-color: white;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    line-height: 1.42857143;
+    color: #333;
+}
+
+/*style responsivo del perfil*/
+@media (min-width:600px){
+    .cover-page-profile{
+        width: 60%;
+    }
+}
+@media (min-width:720px){
+    .div-uploader-cover-page {
+        margin-left: -300px;
+        margin-top: -180px;
+    }
+}
+
+
+@media (min-width:800px){
+    .container-coverPage-profilePhoto {
+        height: 260px;
+    }
+    .photo-profile {
+        height: 120px;
+        width: 120px;
+        border-radius: 69px ;
+    }
+    .name-usuario{
+        left: 140px;
+    }
+    .div-uploader-cover-page {
+        margin-left: -350px;
+        margin-top: -230px;
+    }
+}
+@media (min-width:980px){
+    .cover-page-profile {
+        width:60%;
+    }
+}
+@media (min-width:1000px){ 
+    .container-coverPage-profilePhoto {
+        width: 80%;
+        height: 350px;
+        margin: 120px auto 70px auto;
+        max-width: 1000px;
+    }
+    .photo-profile {
+        height: 160px;
+        width: 160px;
+        border-radius: 89px ;
+        left: 30px;
+    }
+    .name-usuario{
+        left: 220px;
+    }
+    .div-uploader-photo {
+        width:30px;
+        height: 30px;
+    }
+    .div-uploader-cover-page {
+        margin-left: -550px;
+        margin-top: -330px;
+    }
+   
+}
+@media (min-width:1200px) {
+    .container-coverPage-profilePhoto {
+        margin: 130px auto 70px auto;
+        width: 90%;
+        height: 430px;
+    }
+    .photo-profile {
+        height: 180px;
+        width: 180px;
+        border-radius: 95px ;
+        left: 35px;  
+    }
+    .name-usuario{
+        font-size:35px;
+        left: 220px;
+        bottom: -50px;
+    }
+    .cover-page-profile{
+        width: 70%;
+    }
+    .div-uploader-photo {
+        height: 32px;
+        width: 32px;
+    }
+    .div-uploader-cover-page {
+        margin-left: -740px;
+        margin-top: -398px;
+    }
+
+}
+@media (min-width:1600px) {
+    .photo-profile {
+        height: 200px;
+        width: 200px;
+        border-radius: 100px ;
+        left: 40px;
+    }
+    .name-usuario{
+        font-size:35px;
+        left: 240px;
+    }
+}

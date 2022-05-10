@@ -1,0 +1,85 @@
+.section-configuration{
+    background: url(../img/diseno-fondo.webp) no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;  /*saca del flujo el elemento , mantiene el lugar especificado*/
+    min-width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+}
+.container-configuration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+    padding:1%;
+    background-color: rgb(207 159 159 / 36%);
+    width:80%;
+    max-width: 580px;
+    color: aliceblue;
+    font-size: medium;
+}
+.control-label-configuration {
+    top: -7px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #AAAAAA;
+    font-weight: 400;
+    margin: 16px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.control-label-configuration input {
+    border-radius: 5px;
+    height: 30px;
+}
+
+.button-form-configuration {
+    width: 120px;
+    height:38px ;
+    border-radius: 1rem;
+    border:0;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px #999;
+    margin: 20px 5px 10px 5px;
+}
+.button-center {
+    display: flex;
+}
+.card-hide {
+    position: absolute;
+    text-align: center;
+    width: 80%;
+    padding: 50px;
+    margin: 20px 0px 10px 0px;
+    background-color: rgb(69, 39, 75);
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    border-radius: 8px;
+    color: white;
+    font-size: 25px;
+}
+/* STYLE RESETPASSWORD*/
+.input-reset {
+    width: 90%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: black;
+    border: 0;
+    font-weight: 400;
+    border-radius: 10px;
+    text-align: center;
+}
+#messageHideCorreo {
+    font-size: 20px;
+    background-color:brown;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+}
