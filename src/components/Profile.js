@@ -5,19 +5,21 @@ import { headerTemplate } from './Header.js';
 import { publicationBeforeTemplate } from './PublicationBefore.js';
 import {
   // eslint-disable-next-line max-len
-  onGetPublicationUser, deletePublication, getOnlyPublication, updatePublication, onGetUser, likePublication, lovePublication,
+  onGetPublicationUser, onGetUser, likePublication, lovePublication,
 } from '../lib/cloudFirebase.js';
-import { photoUser, coverPageUser, publicationUser } from '../lib/storage.js';
+import { photoUser, coverPageUser } from '../lib/storage.js';
 import {
   buttonEditMain, deletePublicationWithMessage, hideShowDivUploader, uploaderImagePublication,
-  createPublicationProfile,
+  createPublicationProfile, createPhotoCoverPage,
 } from '../lib/functionComponents.js';
 
 export const Profile = () => {
   const profileContainer = document.createElement('div');
   profileContainer.className = 'container-feed'; // contenedor general
+  profileContainer.id = 'containerProfile';
   const divChangeImageDisplay = document.createElement('div');
   divChangeImageDisplay.style.display = 'none';
+  divChangeImageDisplay.id = 'divChangeImageDisplay';
   const divChangeImage = document.createElement('div');
   divChangeImage.className = 'div-logo-change-image';
   const logoChange = document.createElement('img');
@@ -29,32 +31,16 @@ export const Profile = () => {
   coverPagePhotoContainer.className = 'container-coverpage-Photo';
   divChangeImageDisplay.appendChild(divChangeImage);
   divChangeImage.appendChild(logoChange);
-
   // FOTO DE PORTADA Y FOTO DEL USUARIO EN GRANDE
   onGetUser((querySnapshot) => {
     let html = '';
     querySnapshot.forEach((doc2) => {
       const profileNew = doc2.data(); // dato de todos los usuarios
       if (profileNew.id === sessionStorage.getItem('uid')) {
-        html += `
-        <div class="container-coverPage-profilePhoto" id="coverProfileContainer"  style="background-image: url('${profileNew.urlCoverPage}');">
-        <div class="photo-profile" style="background-image: url('${profileNew.urlPhotoUser}');">
-          <div class="div-uploader-photo">
-           <input type="file" id="imgUploaderphoto">
-          </div>
-        </div>
-        <div class="name-usuario">
-            <label class="name-label" id="nameLabel"> Bienvenid@ ${profileNew.name}</label>
-        </div>
-        <div class="div-uploader-cover-page">
-             <input type="file" id="imgUploaderPortada">
-        </div>
-        </div>
-      `;
+        html += createPhotoCoverPage(profileNew);
       }
     });
     coverPagePhotoContainer.innerHTML = html;
-
     const imageUploaderPhoto = coverPagePhotoContainer.querySelector('#imgUploaderphoto');
     const imageUploaderCover = coverPagePhotoContainer.querySelector('#imgUploaderPortada');
 

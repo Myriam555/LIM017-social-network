@@ -1,6 +1,6 @@
 /*AQUI SE ENCUENTRAN ESTILOS DEL LOGIN, REGISTER Y HEADER CADA UNO CON  SU ESTILO RESPONSIVO*/
-* {
-    margin: 0;
+* { /* bloque de declaraciones */
+    margin: 0; /*declaración*/
     padding: 0;
     box-sizing: border-box;
 }

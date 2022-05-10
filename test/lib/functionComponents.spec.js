@@ -1,9 +1,10 @@
 /* eslint-disable object-curly-newline */
 import { Feed } from '../../src/components/Feed.js';
+import { Profile } from '../../src/components/Profile.js';
 import {
   filesHide, buttonSaveEdit, createEmoticon, showEmoticons,
   filesShow, buttonEditMain, deletePublicationWithMessage, hideShowDivUploader,
-  createPublicationFeed, createPublicationProfile,
+  createPublicationFeed, createPublicationProfile, createPhotoCoverPage,
 } from '../../src/lib/functionComponents.js';
 import f from '../../src/lib/functions.js';
 
@@ -284,5 +285,43 @@ describe('createPublicationprofile', () => {
     const doc2 = { id: 'id' };
     const publication = createPublicationProfile(publicationNew, doc2);
     expect(typeof publication).toBe('string');
+  });
+});
+
+describe('createPhotoCoverPage', () => {
+  it('Mostrar foto del usuario', () => {
+    const result = Profile();
+    const coverPagePhotoContainer = result.querySelector('.container-coverpage-Photo');
+    coverPagePhotoContainer.innerHTML = `
+       <img id = "imgUploaderphoto" >
+       <img id = "imgUploaderPortada">
+       `;
+    document.body.appendChild(coverPagePhotoContainer);
+    const imageUploaderPhoto = coverPagePhotoContainer.querySelector('#imgUploaderphoto');
+    const imageUploaderCover = coverPagePhotoContainer.querySelector('#imgUploaderPortada');
+
+    const divChangeImageDisplay = result.querySelector('#divChangeImageDisplay');
+    imageUploaderPhoto.innerHTML = 'img/image.png';
+    imageUploaderPhoto.dispatchEvent(new Event('change'));
+    imageUploaderCover.dispatchEvent(new Event('change'));
+    expect(divChangeImageDisplay.style.display).toBe('none');
+  });
+  const profileNew = {
+    urlCoverPage: 'img/image.png',
+    urlPhotoUser: 'img/image.png',
+    name: 'user',
+  };
+  createPhotoCoverPage(profileNew);
+  expect(typeof createPhotoCoverPage(profileNew)).toBe('string');
+});
+
+describe('Profile', () => {
+  it('función que contiene texto HTML', () => {
+    expect(typeof Profile().textContent).toBe('string');
+  });
+  it('profileContainer contiene texto HTML', () => {
+    const result = Profile();
+    const profileContainer = result.querySelector('#containerProfile');
+    expect(typeof profileContainer).toBe('object');
   });
 });

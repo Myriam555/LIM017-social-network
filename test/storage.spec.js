@@ -40,7 +40,6 @@ describe('dowloadImagePhoto', () => {
     .then((data) => {
       expect(data).toEqual(true);
     }));
-
   it('The function publicationUser return true when upload a profile photo.', () => publicationUser({ name: 'myphotoPublication.jpg' }, {})
     .then((data) => {
       expect(data).toEqual(true);

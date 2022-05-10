@@ -1,9 +1,8 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable no-nested-ternary */
 import {
-    onGetPublication, deletePublication, getOnlyPublication, updatePublication,
-    likePublication, lovePublication, getUsers,
-  } from './cloudFirebase.js';
+  deletePublication, getOnlyPublication, updatePublication,
+} from './cloudFirebase.js';
 // eslint-disable-next-line import/no-unresolved
 import f from './functions.js';
 import { publicationUser } from './storage.js';
@@ -83,7 +82,7 @@ export function showEmoticons(sectionPublication) {
   });
 }
 
-export function buttonEditMain(buttonEdit) { // falllllllllltaaaaaaaaaaaa
+export function buttonEditMain(buttonEdit) {
   buttonEdit.forEach((btn2) => {
     btn2.addEventListener('click', async (e) => {
       const doc3 = await getOnlyPublication(e.target.dataset.id); // trae publicaciones por id
@@ -137,7 +136,7 @@ export function hideShowDivUploader(sectionPublication) {
     }
   });
 }
-// FUNCIÓN PARA PUBLICAR FOTO FFFFFFFFFFFFFFALTAAAAAAAAAAAAA
+// FUNCIÓN PARA PUBLICAR FOTO
 export function uploaderImagePublication(sectionPublication) {
   const inputUploader = sectionPublication.querySelector('.img-uploader');
   const areaText = sectionPublication.querySelector('.text-area');
@@ -262,5 +261,24 @@ export function createPublicationProfile(publicationNew, doc2) {
           
         </section>
        `;
+  return html;
+}
+
+export function createPhotoCoverPage(profileNew) {
+  const html = `
+    <div class="container-coverPage-profilePhoto" id="coverProfileContainer"  style="background-image: url('${profileNew.urlCoverPage}');">
+    <div class="photo-profile" style="background-image: url('${profileNew.urlPhotoUser}');">
+      <div class="div-uploader-photo">
+       <input type="file" id="imgUploaderphoto">
+      </div>
+    </div>
+    <div class="name-usuario">
+        <label class="name-label" id="nameLabel"> Bienvenid@ ${profileNew.name}</label>
+    </div>
+    <div class="div-uploader-cover-page">
+         <input type="file" id="imgUploaderPortada">
+    </div>
+    </div>
+    `;
   return html;
 }
