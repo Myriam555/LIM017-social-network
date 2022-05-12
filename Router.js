@@ -31,7 +31,7 @@ export const routes = {
 export const onNavigate = (pathname) => {
   // pushtate actualiza barra de navegacion(método viene de API.History/navegador)
   // trabaja en conjunto con el evento onpopstate
-  // actualiza url
+  // actualiza url---
   window.history.pushState(
     {},
     pathname,
