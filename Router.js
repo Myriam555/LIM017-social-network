@@ -20,12 +20,12 @@ elementRoot();
 const rootDiv = document.getElementById('root');
 
 export const routes = {
-  '/': Login,
-  '/register': Register,
-  '/feed': Feed,
-  '/profile': Profile,
-  '/configurar': Configurar,
-  '/resetPassword': ResetPassword,
+  '/': Login(),
+  '/register': Register(),
+  '/feed': Feed(),
+  '/profile': Profile(),
+  '/configurar': Configurar(),
+  '/resetPassword': ResetPassword(),
 };
 
 export const onNavigate = (pathname) => {
@@ -44,7 +44,7 @@ export const onNavigate = (pathname) => {
   rootDiv.appendChild(routes[pathname]());
 };
 
-const component = routes[window.location.pathname](); // cambio de ruta
+const component = routes[window.location.pathname]; // cambio de ruta
 // alamacena vista anterior
 window.onpopstate = () => rootDiv.appendChild(component);
 rootDiv.appendChild(component);
