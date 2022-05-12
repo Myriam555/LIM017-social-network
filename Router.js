@@ -41,7 +41,7 @@ export const onNavigate = (pathname) => {
     rootDiv.removeChild(rootDiv.firstChild);
   }
   // actualiza la vista actual segun la ruta
-  rootDiv.appendChild(routes[pathname]());
+  rootDiv.appendChild(routes[pathname]);
 };
 
 const component = routes[window.location.pathname]; // cambio de ruta
